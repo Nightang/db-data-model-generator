@@ -29,12 +29,9 @@ sourceSets {
             srcDirs = ['src/test/java']
         }
     }
-    generated {
+    output {
         java {
-            srcDirs = ['src/generated/java']
-        }
-        resources {
-            srcDirs = ['src/generated/resources']
+            srcDirs = ['output']
         }
     }
 }
