@@ -16,16 +16,16 @@
       <property name="forceBigDecimals" value="false" />
     </javaTypeResolver>
 
-    <javaModelGenerator targetPackage="org.nightang.db.stock.model" targetProject="src/generated/java">
+    <javaModelGenerator targetPackage="org.nightang.db.stock.model" targetProject="output">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="org.nightang.db.stock.data"  targetProject="src/generated/java">
+    <sqlMapGenerator targetPackage="org.nightang.db.stock.data"  targetProject="output">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="org.nightang.db.stock.data"  targetProject="src/generated/java">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="org.nightang.db.stock.data"  targetProject="output">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
