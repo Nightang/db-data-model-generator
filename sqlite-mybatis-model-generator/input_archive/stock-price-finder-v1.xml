@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <context id="stock.price.finder" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="org.sqlite.JDBC"
+        connectionURL="jdbc:sqlite:{0}"
+        userId=""
+        password="">
+    </jdbcConnection>
+	    
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="org.nightang.db.stock.model" targetProject="output">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="org.nightang.db.stock.data"  targetProject="output">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="org.nightang.db.stock.data"  targetProject="output">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="STOCK_INFO" domainObjectName="StockInfo" >
+    	<columnOverride  column="IS_HSI" javaType="java.lang.Boolean"/>
+    	<columnOverride  column="ACTIVE" javaType="java.lang.Boolean"/>
+    	<columnOverride  column="MKT_CAP" javaType="java.lang.Long"/>
+    	<columnOverride  column="LISTING_DATE" jdbcType="VARCHAR" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
+    	<columnOverride  column="LAST_MODIFIED_DATE" jdbcType="VARCHAR" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
+    </table>
+    
+    <table tableName="STOCK_PRICE" domainObjectName="StockPrice" >
+    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
+    	<columnOverride  column="VOLUME" javaType="java.lang.Long"/>
+    	<columnOverride  column="IS_VALID" javaType="java.lang.Boolean"/>
+    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
+    </table>
+    
+    <table tableName="STOCK_ANALYSIS_DATA" domainObjectName="StockAnalysisData" >
+    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
+    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
+    </table>
+    
+    <table tableName="PATTERN_RESULT" domainObjectName="PatternResult" >
+    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
+    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
+    					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
+    </table>
+    
+  </context>
+</generatorConfiguration>
