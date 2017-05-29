@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,19 +24,37 @@ public class DateOnlyToTextTypeHandler extends BaseTypeHandler<Date> {
 
 	@Override
 	public Date getNullableResult(ResultSet arg0, String arg1) throws SQLException {
-		//System.out.println(">" + arg1);
+		try {
+			if(arg0.getString(arg1) != null) {
+				return sdf.parse(arg0.getString(arg1));				
+			}
+		} catch (ParseException e) {
+			System.err.println("Fail to convert Date Field");
+		}
 		return null;
 	}
 
 	@Override
 	public Date getNullableResult(ResultSet arg0, int arg1) throws SQLException {
-		//System.out.println(">2");
+		try {
+			if(arg0.getString(arg1) != null) {
+				return sdf.parse(arg0.getString(arg1));				
+			}
+		} catch (ParseException e) {
+			System.err.println("Fail to convert Date Field");
+		}
 		return null;
 	}
 
 	@Override
 	public Date getNullableResult(CallableStatement arg0, int arg1)	throws SQLException {
-		//System.out.println(">3");
+		try {
+			if(arg0.getString(arg1) != null) {
+				return sdf.parse(arg0.getString(arg1));				
+			}
+		} catch (ParseException e) {
+			System.err.println("Fail to convert Date Field");
+		}
 		return null;
 	}
 
