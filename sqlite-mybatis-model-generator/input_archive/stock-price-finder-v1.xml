@@ -34,7 +34,6 @@
     	<columnOverride  column="ACTIVE" javaType="java.lang.Boolean"/>
     	<columnOverride  column="MKT_CAP" javaType="java.lang.Long"/>
     	<columnOverride  column="LISTING_DATE" jdbcType="VARCHAR" javaType="java.util.Date"
-<<<<<<< HEAD
     					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
     	<columnOverride  column="LAST_MODIFIED_DATE" jdbcType="VARCHAR" javaType="java.util.Date"
     					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
@@ -61,34 +60,6 @@
     					 typeHandler="org.nightang.db.mybatis.DateOnlyToTextTypeHandler"/>
     	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
     					 typeHandler="org.nightang.db.mybatis.DateToTextTypeHandler"/>
-=======
-    					 typeHandler="nightang.ibatis.DateOnlyToTextTypeHandler"/>
-    	<columnOverride  column="LAST_MODIFIED_DATE" jdbcType="VARCHAR" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateToTextTypeHandler"/>
-    </table>
-    
-    <table tableName="STOCK_PRICE" domainObjectName="StockPrice" >
-    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateOnlyToTextTypeHandler"/>
-    	<columnOverride  column="VOLUME" javaType="java.lang.Long"/>
-    	<columnOverride  column="IS_VALID" javaType="java.lang.Boolean"/>
-    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateToTextTypeHandler"/>
-    </table>
-    
-    <table tableName="STOCK_ANALYSIS_DATA" domainObjectName="StockAnalysisData" >
-    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateOnlyToTextTypeHandler"/>
-    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateToTextTypeHandler"/>
-    </table>
-    
-    <table tableName="PATTERN_RESULT" domainObjectName="PatternResult" >
-    	<columnOverride  column="STOCK_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateOnlyToTextTypeHandler"/>
-    	<columnOverride  column="LAST_MODIFIED_DATE" javaType="java.util.Date"
-    					 typeHandler="nightang.ibatis.DateToTextTypeHandler"/>
->>>>>>> refs/remotes/origin/master
     </table>
     
   </context>
