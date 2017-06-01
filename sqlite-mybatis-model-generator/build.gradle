@@ -31,7 +31,10 @@ sourceSets {
     }
     output {
         java {
-            srcDirs = ['output']
+            srcDirs = ['output/java']
+        }
+        resources {
+            srcDirs = ['output/resources']
         }
     }
 }

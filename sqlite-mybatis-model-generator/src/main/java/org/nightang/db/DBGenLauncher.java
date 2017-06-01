@@ -35,14 +35,11 @@ public class DBGenLauncher {
 		printOut(inputDirectory, myBatisConfigFileName, schemaDDLFileName);
 		
 		// Clear Previous Files & Folder
-		File dir = new File(OUTPUT_DIR);
-		if(dir.exists() && dir.isDirectory()) {
-			File[] files = dir.listFiles();
-			for(File file : files) {
-				deleteFiles(file);
-			}
-		} else {
-			dir.mkdir();
+		prepareFolder(new File(OUTPUT_DIR+File.separator+"java"));
+		prepareFolder(new File(OUTPUT_DIR+File.separator+"resources"));
+		File dbfile = new File(OUTPUT_DIR+File.separator+"dbfileName");
+		if(dbfile.exists()) {
+			dbfile.delete();
 		}
 		
 		// Create Database
@@ -62,6 +59,17 @@ public class DBGenLauncher {
 		System.out.println("> Mybatis Config File: " + s2);
 		System.out.println("> Schema DDL File    : " + s3);
 		System.out.println("===============================================");
+	}
+	
+	private static void prepareFolder(File dir) {
+		if(dir.exists() && dir.isDirectory()) {
+			File[] files = dir.listFiles();
+			for(File file : files) {
+				deleteFiles(file);
+			}
+		} else {
+			dir.mkdirs();
+		}
 	}
 	
 	private static void deleteFiles(File file) {
