@@ -65,7 +65,9 @@ public class DBGenLauncher {
 		if(dir.exists() && dir.isDirectory()) {
 			File[] files = dir.listFiles();
 			for(File file : files) {
-				deleteFiles(file);
+				if(file.isDirectory()) {
+					deleteFiles(file);
+				}				
 			}
 		} else {
 			dir.mkdirs();
